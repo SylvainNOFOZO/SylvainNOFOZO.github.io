@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sylvain Nofozo Yimfou</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Portfolio de Sylvain Nofozo Yimfou, Ingénieur Statisticien Économiste : économétrie, enquêtes, data science, finance quantitative, décisionnel.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout : colonne éditoriale unique, tableaux à trois filets façon publication économétrique, grille de projets filtrable. */
+:root {
+  --paper: #F4F6F7;
+  --panel: #FFFFFF;
+  --ink: #0E1E2E;
+  --ink-2: #46596B;
+  --ink-3: #6E8091;
+  --rule: #D3DCE2;
+  --rule-strong: #0E1E2E;
+  --navy: #13314F;
+  --teal: #0A7478;
+  --teal-soft: #E0F0EF;
+  --focus: #0A7478;
+
+  --display: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+
+  --s-xs: 0.75rem; --s-sm: 0.875rem; --s-md: 1rem; --s-lg: 1.25rem;
+  --s-xl: 1.75rem; --s-2xl: 2.5rem; --s-3xl: clamp(2.6rem, 6.4vw, 4.6rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0B1622; --panel: #0F1F30; --ink: #E5ECF1; --ink-2: #A3B4C3; --ink-3: #7F93A5;
+    --rule: #233649; --rule-strong: #C9D6E0; --navy: #A9C6E3; --teal: #46C2BE; --teal-soft: #11343A; --focus: #46C2BE;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0B1622; --panel: #0F1F30; --ink: #E5ECF1; --ink-2: #A3B4C3; --ink-3: #7F93A5;
+  --rule: #233649; --rule-strong: #C9D6E0; --navy: #A9C6E3; --teal: #46C2BE; --teal-soft: #11343A; --focus: #46C2BE;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: var(--s-md);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--teal); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+p { margin: 0; }
+ul { margin: 0; padding: 0; }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: var(--s-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal);
+  font-weight: 500;
+}
+
+/* Navigation */
+.top { border-bottom: 1px solid var(--rule); }
+.top .wrap {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 12px 24px; padding-block: 18px;
+}
+.mark { font-family: var(--mono); font-size: var(--s-sm); color: var(--ink); text-decoration: none; letter-spacing: 0.02em; }
+.mark b { font-weight: 500; color: var(--teal); }
+.nav { display: flex; flex-wrap: wrap; gap: 4px 20px; list-style: none; }
+.nav a { color: var(--ink-2); text-decoration: none; font-size: var(--s-sm); }
+.nav a:hover { color: var(--ink); text-decoration: underline; }
+
+/* Hero */
+.hero .wrap {
+  display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: 48px; padding-block: 64px 56px; align-items: end;
+}
+.hero h1 {
+  font-family: var(--display); font-weight: 400; font-size: var(--s-3xl);
+  line-height: 1.02; letter-spacing: -0.015em; margin-top: 14px;
+}
+.hero h1 em { font-style: italic; color: var(--teal); }
+.role {
+  font-family: var(--mono); font-size: var(--s-sm); color: var(--ink-2);
+  margin-top: 18px; letter-spacing: 0.01em;
+}
+.thesis { font-size: var(--s-lg); line-height: 1.55; color: var(--ink); max-width: 36ch; margin-top: 26px; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 28px; font-size: var(--s-sm); color: var(--ink-2); }
+.meta span::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--teal); margin-right: 9px; vertical-align: middle; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.btn {
+  font: 500 var(--s-sm)/1 var(--body); padding: 12px 18px; border-radius: 3px;
+  border: 1px solid var(--rule-strong); background: transparent; color: var(--ink);
+  text-decoration: none; cursor: pointer;
+}
+.btn.primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.btn:hover { border-color: var(--teal); }
+.btn.primary:hover { background: var(--teal); border-color: var(--teal); color: var(--paper); }
+
+/* Tableau à trois filets */
+.booktabs { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.booktabs caption {
+  text-align: left; font-family: var(--mono); font-size: var(--s-xs); letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--ink-3); padding-bottom: 10px;
+}
+.booktabs thead th { border-top: 2px solid var(--rule-strong); border-bottom: 1px solid var(--rule-strong); }
+.booktabs tbody tr:last-child td, .booktabs tbody tr:last-child th { border-bottom: 2px solid var(--rule-strong); }
+.booktabs th, .booktabs td { padding: 9px 0; text-align: left; vertical-align: baseline; }
+.booktabs thead th { font-family: var(--mono); font-weight: 500; font-size: var(--s-xs); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2); }
+.booktabs .num { font-family: var(--mono); font-size: var(--s-lg); color: var(--ink); white-space: nowrap; padding-right: 18px; font-weight: 500; }
+.booktabs td.lab { color: var(--ink-2); font-size: var(--s-sm); line-height: 1.45; }
+.booktabs .note { font-size: var(--s-xs); color: var(--ink-3); padding-top: 10px; font-family: var(--mono); }
+
+/* Sections */
+section.block { border-top: 1px solid var(--rule); }
+section.block > .wrap { padding-block: 64px; }
+.head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 24px 48px; align-items: end; margin-bottom: 40px; }
+.head h2 { font-family: var(--display); font-weight: 400; font-size: var(--s-2xl); line-height: 1.1; margin-top: 10px; letter-spacing: -0.01em; }
+.head p { color: var(--ink-2); max-width: 60ch; }
+
+/* Expertise */
+.domains { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 40px; }
+.domain { border-top: 2px solid var(--rule-strong); padding-top: 18px; display: flex; flex-direction: column; gap: 12px; }
+.domain h3 { font-family: var(--display); font-weight: 500; font-size: var(--s-xl); line-height: 1.15; }
+.domain p { color: var(--ink-2); font-size: var(--s-sm); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; }
+.tags li { font-family: var(--mono); font-size: 0.72rem; color: var(--ink-2); border: 1px solid var(--rule); padding: 3px 7px; border-radius: 2px; line-height: 1.35; }
+
+/* Projets */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; align-items: center; }
+.chip {
+  font: 500 var(--s-sm)/1 var(--body); padding: 9px 14px; border-radius: 999px;
+  border: 1px solid var(--rule); background: transparent; color: var(--ink-2); cursor: pointer;
+}
+.chip:hover { border-color: var(--ink-3); color: var(--ink); }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.count { font-family: var(--mono); font-size: var(--s-xs); color: var(--ink-3); margin-left: auto; letter-spacing: 0.04em; }
+.projects { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.card {
+  background: var(--panel); border: 1px solid var(--rule); border-radius: 4px;
+  padding: 22px 22px 20px; display: flex; flex-direction: column; gap: 12px; min-width: 0;
+}
+.card .cat { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--teal); }
+.card h3 { font-family: var(--display); font-weight: 500; font-size: 1.4rem; line-height: 1.18; }
+.card .ctx { font-size: var(--s-xs); color: var(--ink-3); font-family: var(--mono); }
+.card > p { font-size: var(--s-sm); color: var(--ink-2); }
+.card ul.pts { list-style: none; display: flex; flex-direction: column; gap: 7px; font-size: var(--s-sm); color: var(--ink); }
+.card ul.pts li { padding-left: 16px; position: relative; line-height: 1.5; }
+.card ul.pts li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 7px; height: 1px; background: var(--teal); }
+.card .tags { margin-top: auto; padding-top: 6px; }
+.empty { color: var(--ink-3); font-size: var(--s-sm); }
+.srcs { display: flex; flex-wrap: wrap; gap: 6px 16px; padding-top: 4px; border-top: 1px solid var(--rule); margin-top: 4px; padding-top: 12px; }
+.src { font-family: var(--mono); font-size: var(--s-xs); color: var(--teal); text-decoration: none; letter-spacing: 0.02em; }
+.src:hover { text-decoration: underline; }
+.line a.v { color: var(--paper); text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--paper) 45%, transparent); user-select: text; }
+
+/* Recherche */
+.papers { display: flex; flex-direction: column; gap: 0; }
+.paper { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 16px 48px; padding-block: 28px; border-top: 1px solid var(--rule); }
+.paper:first-child { border-top: 2px solid var(--rule-strong); }
+.paper:last-child { border-bottom: 2px solid var(--rule-strong); }
+.paper h3 { font-family: var(--display); font-weight: 400; font-size: 1.45rem; line-height: 1.25; }
+.paper .authors { font-size: var(--s-sm); color: var(--ink-2); margin-top: 8px; }
+.paper .abstract { font-size: var(--s-sm); color: var(--ink-2); margin-top: 12px; max-width: 64ch; }
+.facts { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 16px; font-size: var(--s-sm); align-content: start; margin: 0; }
+.facts dt { font-family: var(--mono); font-size: var(--s-xs); text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-3); padding-top: 2px; }
+.facts dd { margin: 0; color: var(--ink); }
+.status { display: inline-block; font-family: var(--mono); font-size: 0.72rem; padding: 2px 8px; border-radius: 2px; background: var(--teal-soft); color: var(--teal); letter-spacing: 0.03em; }
+
+/* Parcours */
+.split { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 56px; }
+.split h3.sub { font-family: var(--mono); font-size: var(--s-xs); text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-3); font-weight: 500; margin-bottom: 8px; }
+.timeline { list-style: none; }
+.timeline li { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 4px 20px; padding-block: 18px; border-top: 1px solid var(--rule); }
+.timeline li:first-child { border-top: 2px solid var(--rule-strong); }
+.timeline .when { font-family: var(--mono); font-size: var(--s-sm); color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.timeline .what { font-weight: 600; font-size: var(--s-md); line-height: 1.4; }
+.timeline .where { font-size: var(--s-sm); color: var(--teal); margin-top: 2px; }
+.timeline .desc { font-size: var(--s-sm); color: var(--ink-2); margin-top: 6px; }
+.stack-col { display: flex; flex-direction: column; gap: 40px; }
+
+/* Outils */
+.tools { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px 32px; }
+.tools h3 { font-family: var(--mono); font-size: var(--s-xs); text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-3); font-weight: 500; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--rule-strong); }
+.tools p { font-size: var(--s-sm); color: var(--ink); line-height: 1.65; }
+
+/* Contact */
+.contact { background: var(--ink); color: var(--paper); }
+.contact .wrap { padding-block: 64px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px 56px; align-items: start; }
+.contact h2 { font-family: var(--display); font-weight: 400; font-size: var(--s-2xl); line-height: 1.12; }
+.contact .eyebrow { color: var(--paper); opacity: 0.7; }
+.contact p.lead { margin-top: 16px; opacity: 0.82; max-width: 44ch; }
+.lines { display: flex; flex-direction: column; gap: 0; }
+.line { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr) auto; gap: 12px; align-items: center; padding-block: 14px; border-top: 1px solid color-mix(in srgb, var(--paper) 22%, transparent); }
+.line:last-child { border-bottom: 1px solid color-mix(in srgb, var(--paper) 22%, transparent); }
+.line .k { font-family: var(--mono); font-size: var(--s-xs); text-transform: uppercase; letter-spacing: 0.07em; opacity: 0.65; }
+.line .v { font-family: var(--mono); font-size: var(--s-sm); user-select: all; overflow-wrap: anywhere; }
+.copy {
+  font: 500 var(--s-xs)/1 var(--mono); letter-spacing: 0.04em; padding: 7px 10px; border-radius: 2px;
+  background: transparent; color: var(--paper); border: 1px solid color-mix(in srgb, var(--paper) 40%, transparent); cursor: pointer;
+}
+.copy:hover { border-color: var(--paper); }
+.copy:focus-visible { outline-color: var(--paper); }
+footer .wrap { padding-block: 22px; font-family: var(--mono); font-size: var(--s-xs); color: var(--ink-3); display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+
+@media (max-width: 960px) {
+  .domains, .projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tools { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 820px) {
+  .hero .wrap, .head, .paper, .split, .contact .wrap { grid-template-columns: minmax(0, 1fr); }
+  .hero .wrap { padding-block: 44px 40px; gap: 40px; }
+  section.block > .wrap { padding-block: 48px; }
+}
+@media (max-width: 600px) {
+  .domains, .projects, .tools { grid-template-columns: minmax(0, 1fr); }
+  .timeline li { grid-template-columns: minmax(0, 1fr); }
+  .line { grid-template-columns: minmax(0, 1fr) auto; }
+  .line .k { grid-column: 1 / -1; }
+  .count { margin-left: 0; width: 100%; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .card { transition: border-color .15s ease; }
+  .card:hover { border-color: var(--ink-3); }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#accueil">S. Nofozo Yimfou <b>/ ISE</b></a>
+    <ul class="nav">
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#recherche">Recherche</a></li>
+      <li><a href="#parcours">Parcours</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="accueil">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Ingénieur Statisticien Économiste · ISSEA 2026</p>
+        <h1>Sylvain <em>Nofozo</em> Yimfou</h1>
+        <p class="role">Économétrie · Enquêtes · Data science · Finance quantitative · Décisionnel</p>
+        <p class="thesis">Je transforme des données hétérogènes en décisions défendables, de la collecte sur le terrain jusqu'au modèle déployé, avec une exigence constante : savoir ce qu'un chiffre établit et ce qu'il n'établit pas.</p>
+        <div class="meta">
+          <span>Yaoundé, Cameroun</span>
+          <span>Ouvert à la mobilité</span>
+          <span>Français, anglais professionnel</span>
+        </div>
+        <div class="cta">
+          <a class="btn primary" href="#projets">Voir les projets</a>
+          <a class="btn" href="https://github.com/SylvainNOFOZO" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="#contact">Me contacter</a>
+        </div>
+      </div>
+      <table class="booktabs" aria-label="Quelques ordres de grandeur">
+        <caption>Quelques ordres de grandeur</caption>
+        <thead><tr><th scope="col">Valeur</th><th scope="col">Contexte</th></tr></thead>
+        <tbody>
+          <tr><td class="num">23 × 56</td><td class="lab">pays × années de panel pour l'article sur l'intégration régionale africaine, 1970 à 2025</td></tr>
+          <tr><td class="num">60+</td><td class="lab">sources RSS agrégées sur 7 domaines par le RAG Finance Hub</td></tr>
+          <tr><td class="num">8 300+</td><td class="lab">profils collectés par un pipeline de scraping automatisé</td></tr>
+          <tr><td class="num">4</td><td class="lab">modèles GARCH combinés par pondération BIC dans Quant Forecast</td></tr>
+          <tr><td class="num">11</td><td class="lab">modules du cours de Python en français rédigé pour l'ISSEA</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="block" id="expertise">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <p class="eyebrow">Expertise</p>
+          <h2>Six domaines, une même formation</h2>
+        </div>
+        <p>Un ingénieur statisticien économiste ne se limite pas à l'analyse de données. Il conçoit la collecte, modélise les comportements, évalue des politiques et met des outils entre les mains des décideurs. Voici comment ces compétences s'articulent.</p>
+      </div>
+      <div class="domains">
+        <article class="domain">
+          <h3>Économétrie et évaluation d'impact</h3>
+          <p>Identifier des effets causaux plutôt que des corrélations, et dire clairement ce que le protocole permet de conclure.</p>
+          <ul class="tags"><li>MCO, logit, probit, GLM</li><li>Panel, effets fixes, GMM</li><li>Gravité, PPML</li><li>DiD échelonnées</li><li>Contrôle synthétique</li></ul>
+        </article>
+        <article class="domain">
+          <h3>Enquêtes et méthodes de terrain</h3>
+          <p>Concevoir l'instrument, dimensionner l'échantillon, superviser la collecte et garantir la qualité des données recueillies.</p>
+          <ul class="tags"><li>Questionnaires</li><li>KoboToolbox, XLSForm</li><li>Taille d'échantillon</li><li>Contrôle qualité</li><li>Analyse qualitative, NVivo</li></ul>
+        </article>
+        <article class="domain">
+          <h3>Data science et IA</h3>
+          <p>Construire des modèles prédictifs utiles en production, avec une validation honnête et une restitution lisible.</p>
+          <ul class="tags"><li>Classification, scoring</li><li>Clustering</li><li>NLP</li><li>RAG, LLM</li><li>scikit-learn</li></ul>
+        </article>
+        <article class="domain">
+          <h3>Finance quantitative et risque</h3>
+          <p>Modéliser la volatilité et les événements extrêmes, et traduire la discipline de risque en règles exécutables.</p>
+          <ul class="tags"><li>GARCH</li><li>Monte Carlo</li><li>VaR, Expected Shortfall</li><li>Valeurs extrêmes</li><li>MQL5</li></ul>
+        </article>
+        <article class="domain">
+          <h3>Décisionnel et ingénierie des données</h3>
+          <p>Organiser la donnée pour qu'un même indicateur ait la même valeur partout, puis la rendre consultable.</p>
+          <ul class="tags"><li>SQL</li><li>Modèle en étoile</li><li>ETL</li><li>Power BI, DAX</li><li>Streamlit, Shiny</li></ul>
+        </article>
+        <article class="domain">
+          <h3>Analyse spatiale et intelligence économique</h3>
+          <p>Lire les marchés et les territoires : cartographie des indicateurs, géomarketing et veille structurée.</p>
+          <ul class="tags"><li>QGIS</li><li>Cartographie choroplèthe</li><li>Clustering spatial</li><li>Géomarketing</li><li>Veille concurrentielle</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="projets">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <p class="eyebrow">Projets</p>
+          <h2>Travaux réalisés</h2>
+        </div>
+        <p>Missions professionnelles et projets personnels, choisis pour montrer la chaîne complète : de la donnée brute à l'outil utilisé. Filtrez par domaine.</p>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filtrer les projets par domaine">
+        <button class="chip" type="button" id="f-all" data-f="all" aria-pressed="true">Tous</button>
+        <button class="chip" type="button" id="f-ds" data-f="ds" aria-pressed="false">Data science et IA</button>
+        <button class="chip" type="button" id="f-fin" data-f="fin" aria-pressed="false">Finance quantitative</button>
+        <button class="chip" type="button" id="f-bi" data-f="bi" aria-pressed="false">Décisionnel</button>
+        <button class="chip" type="button" id="f-eco" data-f="eco" aria-pressed="false">Économie appliquée</button>
+        <span class="count" id="count" aria-live="polite">12 projets</span>
+      </div>
+
+      <div class="projects" id="projects">
+        <article class="card" data-cat="ds bi">
+          <span class="cat">Data science · Décisionnel</span>
+          <h3>Détection de la fraude à la TVA</h3>
+          <span class="ctx">Direction Générale des Impôts, UTATD · 2025–2026</span>
+          <ul class="pts">
+            <li>Modèle de scoring du risque de fraude par apprentissage supervisé sur des bases fiscales à grande échelle</li>
+            <li>Pipeline automatisé : extraction, prétraitement, construction des variables, entraînement, scoring et génération d'alertes</li>
+            <li>Tableau de bord destiné aux agents, et outil de classification sectorielle des contribuables</li>
+          </ul>
+          <ul class="tags"><li>Python</li><li>SQL</li><li>scikit-learn</li><li>Streamlit</li></ul>
+        </article>
+
+        <article class="card" data-cat="eco fin">
+          <span class="cat">Économie appliquée · Finance</span>
+          <h3>Tarification dynamique de produits financiers</h3>
+          <span class="ctx">Bircorp FI · 2025</span>
+          <ul class="pts">
+            <li>Modèle de tarification combinant économétrie et apprentissage automatique</li>
+            <li>Analyses de sensibilité tarifaire et modélisation de scénarios</li>
+            <li>Restitution d'analyses stratégiques à la direction</li>
+          </ul>
+          <ul class="tags"><li>Python</li><li>Économétrie</li><li>Machine learning</li></ul>
+        </article>
+
+        <article class="card" data-cat="fin">
+          <span class="cat">Finance quantitative</span>
+          <h3>Quant Forecast</h3>
+          <span class="ctx">Plateforme personnelle de prévision et de risque</span>
+          <ul class="pts">
+            <li>Moyenne bayésienne de quatre GARCH (EGARCH, GJR, TGARCH, FIGARCH) pondérés par leur BIC</li>
+            <li>Simulations Monte Carlo GBM, Heston et Merton à sauts pour des trajectoires probabilistes</li>
+            <li>VaR et Expected Shortfall par théorie des valeurs extrêmes, tableau de bord à six onglets</li>
+          </ul>
+          <ul class="tags"><li>Python</li><li>Streamlit</li><li>API MetaTrader 5</li></ul>
+        </article>
+
+        <article class="card" data-cat="ds">
+          <span class="cat">Data science et IA</span>
+          <h3>RAG Finance Hub</h3>
+          <span class="ctx">Plateforme d'intelligence financière, déployée</span>
+          <ul class="pts">
+            <li>Agrégation automatique de plus de 60 sources RSS françaises et anglaises sur 7 domaines</li>
+            <li>Agent conversationnel couplant recherche documentaire et modèle de langue</li>
+            <li>Tableaux de bord de volumétrie, cartes de chaleur temporelles, calendrier économique filtré</li>
+          </ul>
+          <ul class="tags"><li>RAG</li><li>API Claude</li><li>Docker</li><li>Hugging Face Spaces</li></ul>
+          <div class="srcs"><a class="src" href="https://github.com/SylvainNOFOZO/rag-finance-hub" target="_blank" rel="noopener">Code source ↗</a></div>
+        </article>
+
+        <article class="card" data-cat="fin">
+          <span class="cat">Finance quantitative</span>
+          <h3>SylvaEA, robot de gestion de positions</h3>
+          <span class="ctx">Expert Advisor MetaTrader 5 · version 1.3</span>
+          <ul class="pts">
+            <li>Risque calculé au niveau du groupe de positions, avec prix d'entrée moyen pondéré par les volumes</li>
+            <li>Synchronisation automatique des stops et objectifs, état persistant entre redémarrages</li>
+            <li>Règle de conception : tout niveau doit découler d'un paramètre saisi, sinon il n'est pas placé</li>
+          </ul>
+          <ul class="tags"><li>MQL5</li><li>Gestion du risque</li></ul>
+        </article>
+
+        <article class="card" data-cat="bi">
+          <span class="cat">Décisionnel</span>
+          <h3>Sakila 360, entrepôt de données</h3>
+          <span class="ctx">Chaîne décisionnelle complète</span>
+          <ul class="pts">
+            <li>Modèle en étoile sous MySQL alimenté par une chaîne ETL en Python</li>
+            <li>Dimension client historisée (SCD de type 2) pour suivre les changements dans le temps</li>
+            <li>API Express.js, tableau de bord React et Chart.js, le tout sous Docker Compose</li>
+          </ul>
+          <ul class="tags"><li>MySQL</li><li>Python</li><li>React</li><li>Docker Compose</li></ul>
+          <div class="srcs"><a class="src" href="https://github.com/SylvainNOFOZO/sakila360" target="_blank" rel="noopener">Code source ↗</a></div>
+        </article>
+
+        <article class="card" data-cat="bi">
+          <span class="cat">Décisionnel</span>
+          <h3>Tableaux de bord Power BI</h3>
+          <span class="ctx">Rapports décisionnels</span>
+          <ul class="pts">
+            <li>Tableau de bord commercial sur un modèle en étoile reliant commandes et responsables de compte</li>
+            <li>Carte choroplèthe mondiale pilotée par une mesure DAX de sélection dynamique de l'indicateur</li>
+            <li>Infobulle personnalisée de onze caractéristiques par pays, préparation sous Power Query</li>
+          </ul>
+          <ul class="tags"><li>Power BI</li><li>DAX</li><li>Power Query</li></ul>
+        </article>
+
+        <article class="card" data-cat="ds fin">
+          <span class="cat">Data science · Finance</span>
+          <h3>Modèle de scoring de crédit</h3>
+          <span class="ctx">Évaluation du risque d'emprunteurs individuels</span>
+          <ul class="pts">
+            <li>Chaîne complète : données de terrain, nettoyage, construction des variables</li>
+            <li>Régression logistique et arbre de décision comparés</li>
+            <li>Validation et mise en service du score</li>
+          </ul>
+          <ul class="tags"><li>Python</li><li>Régression logistique</li><li>Arbres</li></ul>
+        </article>
+
+        <article class="card" data-cat="ds">
+          <span class="cat">Data science et IA</span>
+          <h3>Analyse de sentiment et Transformers</h3>
+          <span class="ctx">Traitement automatique du langage</span>
+          <ul class="pts">
+            <li>Pipeline de classification par TF-IDF, quatre classifieurs entraînés et comparés</li>
+            <li>Fine-tuning de DistilBERT (66 millions de paramètres) sur 50 000 critiques IMDb</li>
+            <li>Comparaison d'optimiseurs (AdamW, SGD avec momentum) par recherche aléatoire d'hyperparamètres</li>
+          </ul>
+          <ul class="tags"><li>NLP</li><li>TF-IDF</li><li>DistilBERT</li><li>PyTorch</li></ul>
+          <div class="srcs"><a class="src" href="https://github.com/SylvainNOFOZO/G01_IMDb_DistilBERT_Optimiseurs" target="_blank" rel="noopener">Code source ↗</a></div>
+        </article>
+
+        <article class="card" data-cat="ds">
+          <span class="cat">Data science et IA</span>
+          <h3>Collecte automatisée de données sportives</h3>
+          <span class="ctx">Pipeline de scraping</span>
+          <ul class="pts">
+            <li>Plus de 8 300 profils de joueurs collectés sur trois ligues</li>
+            <li>Nettoyage, structuration et consolidation en base exploitable</li>
+            <li>Analyse descriptive et restitution</li>
+          </ul>
+          <ul class="tags"><li>Python</li><li>Scraping</li><li>pandas</li></ul>
+        </article>
+
+        <article class="card" data-cat="eco ds">
+          <span class="cat">Économie appliquée · Data science</span>
+          <h3>Perception consommateur d'une entreprise camerounaise</h3>
+          <span class="ctx">Initiative personnelle · en cours</span>
+          <ul class="pts">
+            <li>Collecte des avis publiés sur les réseaux sociaux et analyse textuelle</li>
+            <li>Lecture géographique de la perception, par zone de marché</li>
+            <li>Propositions de procédures pour la stratégie marketing</li>
+          </ul>
+          <ul class="tags"><li>NLP</li><li>Géomarketing</li><li>Intelligence économique</li></ul>
+        </article>
+
+        <article class="card" data-cat="fin bi">
+          <span class="cat">Finance · Décisionnel</span>
+          <h3>Journal et gestion du risque de trading</h3>
+          <span class="ctx">Applications personnelles</span>
+          <ul class="pts">
+            <li>Trading Journal Pro : suivi des trades et statistiques de performance, données synchronisées sur GitHub</li>
+            <li>Gestion du risque : arrêt de séance, dimensionnement des positions, stop suiveur</li>
+            <li>Indicateurs MQL5 sur mesure pour l'analyse de marché</li>
+          </ul>
+          <ul class="tags"><li>Streamlit</li><li>R Shiny</li><li>MQL5</li></ul>
+          <div class="srcs">
+            <a class="src" href="https://github.com/SylvainNOFOZO/trading-journal" target="_blank" rel="noopener">Journal ↗</a>
+            <a class="src" href="https://github.com/SylvainNOFOZO/Risk_managment_trading" target="_blank" rel="noopener">Gestion du risque ↗</a>
+          </div>
+        </article>
+      </div>
+      <p class="empty" id="empty" hidden>Aucun projet dans ce domaine.</p>
+    </div>
+  </section>
+
+  <section class="block" id="recherche">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <p class="eyebrow">Recherche</p>
+          <h2>Articles et travaux en cours</h2>
+        </div>
+        <p>Une recherche appliquée à l'économie du développement, attentive à la crédibilité des protocoles d'identification autant qu'aux estimateurs.</p>
+      </div>
+      <div class="papers">
+        <article class="paper">
+          <div>
+            <h3>Identifier les effets de l'intégration régionale africaine : enseignements tirés des adhésions et des retraits</h3>
+            <p class="authors">Igor-Mathieu Gondje-Dacka (auteur correspondant), Sylvain Nofozo Yimfou, Jeff Alphonse Husken Tiawe · ISSEA</p>
+            <p class="abstract">Trois épisodes institutionnels : l'élargissement échelonné de la Communauté d'Afrique de l'Est, la création de la CEMAC en 1994 et le retrait du Mali, du Burkina Faso et du Niger de la CEDEAO en 2025. L'article montre que les estimateurs modernes corrigent les comparaisons inappropriées, mais ne résolvent pas la confusion inscrite dans les événements qui engendrent le traitement.</p>
+          </div>
+          <dl class="facts">
+            <dt>Statut</dt><dd><span class="status">Soumis</span></dd>
+            <dt>Conférence</dt><dd>3rd Kiel–CEPR–World Bank African Economic Development Conference, Rome, janvier 2027</dd>
+            <dt>Méthodes</dt><dd>DiD échelonnées doublement robustes, contrôle synthétique, inférence par placebo</dd>
+            <dt>Données</dt><dd>23 pays africains, 1970 à 2025</dd>
+          </dl>
+        </article>
+
+        <article class="paper">
+          <div>
+            <h3>Exclusions de localisation et déclenchement des conflits civils dans les pays en développement</h3>
+            <p class="abstract">Effets des exclusions en milieux urbain et rural sur le déclenchement des conflits civils, avec la décentralisation comme facteur modérateur.</p>
+          </div>
+          <dl class="facts">
+            <dt>Statut</dt><dd><span class="status">En révision</span></dd>
+            <dt>Thème</dt><dd>Économie politique du développement</dd>
+          </dl>
+        </article>
+
+        <article class="paper">
+          <div>
+            <h3>Conflits internes et allocation de l'aide publique au développement</h3>
+            <p class="abstract">Effet des conflits internes des pays bénéficiaires sur l'allocation de l'aide par les donneurs, et étude de l'hétérogénéité des comportements.</p>
+          </div>
+          <dl class="facts">
+            <dt>Statut</dt><dd><span class="status">En cours</span></dd>
+            <dt>Méthodes</dt><dd>Modèle de gravité, PPML</dd>
+            <dt>Données</dt><dd>23 donneurs, 100 bénéficiaires, 1980 à 2018</dd>
+          </dl>
+        </article>
+
+        <article class="paper">
+          <div>
+            <h3>Conflits internes et investissements directs étrangers</h3>
+            <p class="abstract">Effet de l'intensité des conflits internes sur les flux d'investissements directs étrangers entrants.</p>
+          </div>
+          <dl class="facts">
+            <dt>Statut</dt><dd><span class="status">En cours</span></dd>
+            <dt>Méthodes</dt><dd>Effets fixes, GMM en panel dynamique</dd>
+            <dt>Données</dt><dd>Indice ICRG de conflit interne, 1984 à 2018</dd>
+          </dl>
+        </article>
+
+        <article class="paper">
+          <div>
+            <h3>Théorie des valeurs extrêmes appliquée aux données climatiques africaines</h3>
+            <p class="abstract">Modélisation des extrêmes climatiques et de leurs niveaux de retour.</p>
+          </div>
+          <dl class="facts">
+            <dt>Statut</dt><dd><span class="status">En cours</span></dd>
+            <dt>Méthodes</dt><dd>GEV, dépassements de seuil (POT)</dd>
+            <dt>Données</dt><dd>1950 à 2023</dd>
+          </dl>
+        </article>
+
+        <article class="paper">
+          <div>
+            <h3>Estimation à poids pour le projecteur de Bergman dans les espaces de Bergman à poids radial généralisé</h3>
+            <p class="authors">Mémoire de Master 2, Mathématiques (Analyse classique), sous la direction du Pr Edgar Tchoundja</p>
+          </div>
+          <dl class="facts">
+            <dt>Statut</dt><dd><span class="status">Soutenu</span></dd>
+            <dt>Institution</dt><dd>Université de Yaoundé I, 2022</dd>
+          </dl>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="parcours">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <p class="eyebrow">Parcours</p>
+          <h2>Expérience et formation</h2>
+        </div>
+        <p>Une formation mathématique fondamentale, complétée par l'économie et la statistique appliquées, puis mise à l'épreuve en administration fiscale, en finance et sur le terrain.</p>
+      </div>
+      <div class="split">
+        <div>
+          <h3 class="sub">Expérience</h3>
+          <ul class="timeline">
+            <li>
+              <span class="when">2025–2026</span>
+              <div>
+                <p class="what">Statisticien stagiaire, modélisation et détection de la fraude à la TVA</p>
+                <p class="where">Direction Générale des Impôts du Cameroun, UTATD</p>
+                <p class="desc">Stage de fin d'études. Scoring du risque de fraude de bout en bout et pipeline automatisé d'alertes en Python et SQL.</p>
+              </div>
+            </li>
+            <li>
+              <span class="when">2025</span>
+              <div>
+                <p class="what">Stagiaire, conception d'un modèle de tarification dynamique</p>
+                <p class="where">Bircorp FI</p>
+                <p class="desc">Tarification de produits financiers, analyses de sensibilité et scénarios pour la direction.</p>
+              </div>
+            </li>
+            <li>
+              <span class="when">2024–2025</span>
+              <div>
+                <p class="what">Superviseur d'enquête de terrain</p>
+                <p class="where">ISSEA, programme d'enquêtes académiques</p>
+                <p class="desc">Coordination des enquêteurs, contrôle qualité des questionnaires et respect des délais de collecte.</p>
+              </div>
+            </li>
+            <li>
+              <span class="when">2023–2024</span>
+              <div>
+                <p class="what">Enquêteur de terrain</p>
+                <p class="where">ISSEA, programme d'enquêtes académiques</p>
+                <p class="desc">Collecte structurée et semi-structurée dans le respect des protocoles et de la confidentialité des répondants.</p>
+              </div>
+            </li>
+            <li>
+              <span class="when">Enseignement</span>
+              <div>
+                <p class="what">Auteur d'un cours complet de Python en français</p>
+                <p class="where">Support de onze modules destiné à l'ISSEA</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="stack-col">
+          <div>
+            <h3 class="sub">Formation</h3>
+            <ul class="timeline">
+              <li><span class="when">2022–2026</span><div><p class="what">Ingénieur Statisticien Économiste</p><p class="where">ISSEA, Yaoundé</p></div></li>
+              <li><span class="when">2021–2022</span><div><p class="what">Master 2, Mathématiques, analyse classique</p><p class="where">Université de Yaoundé I</p></div></li>
+              <li><span class="when">2017–2021</span><div><p class="what">Licence, Mathématiques fondamentales</p><p class="where">Université de Yaoundé I</p></div></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="sub">Distinctions</h3>
+            <ul class="timeline">
+              <li><span class="when">2025</span><div><p class="what">Représentant de l'ISSEA</p><p class="where">Olympiade des marchés financiers de la COSUMAF</p></div></li>
+              <li><span class="when">2017</span><div><p class="what">4ᵉ place</p><p class="where">Olympiade de mathématiques Hope Bamboutos</p></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="outils">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <p class="eyebrow">Outils</p>
+          <h2>Environnement de travail</h2>
+        </div>
+        <p>Le choix de l'outil suit la question posée : volumes, enquête, restitution ou automatisation.</p>
+      </div>
+      <div class="tools">
+        <div><h3>Programmation</h3><p>Python (pandas, scikit-learn, statsmodels), R (dplyr, ggplot2, forecast, Shiny), SQL, MQL5, VBA</p></div>
+        <div><h3>Statistique et économétrie</h3><p>Stata, R, Python, séries temporelles ARIMA, GARCH et VAR, analyse multivariée, tests A/B, segmentation RFM</p></div>
+        <div><h3>Décisionnel et visualisation</h3><p>Power BI et DAX, Power Query, Streamlit, R Shiny, Plotly, Excel avancé</p></div>
+        <div><h3>Collecte, SIG et déploiement</h3><p>KoboToolbox et XLSForm, NVivo, QGIS, Selenium, Docker, Hugging Face Spaces</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2>Discutons d'une mission ou d'un poste</h2>
+      <p class="lead">Disponible pour des postes et des missions en statistique, économétrie, data science, finance quantitative et études. Basé à Yaoundé, ouvert à la mobilité.</p>
+    </div>
+    <div class="lines">
+      <div class="line">
+        <span class="k">E-mail</span>
+        <span class="v" id="v-mail">sylvanoyimfou@gmail.com</span>
+        <button class="copy" type="button" id="c-mail" data-target="v-mail">Copier</button>
+      </div>
+      <div class="line">
+        <span class="k">Téléphone</span>
+        <span class="v" id="v-tel">+237 695 236 235</span>
+        <button class="copy" type="button" id="c-tel" data-target="v-tel">Copier</button>
+      </div>
+      <div class="line">
+        <span class="k">GitHub</span>
+        <a class="v" id="v-gh" href="https://github.com/SylvainNOFOZO" target="_blank" rel="noopener">github.com/SylvainNOFOZO</a>
+        <button class="copy" type="button" id="c-gh" data-target="v-gh">Copier</button>
+      </div>
+      <div class="line">
+        <span class="k">LinkedIn</span>
+        <span class="v" id="v-li">Sylvain Nofozo Yimfou</span>
+        <button class="copy" type="button" id="c-li" data-target="v-li">Copier</button>
+      </div>
+      <div class="line">
+        <span class="k">Langues</span>
+        <span class="v">Français, anglais B2, dâ'a</span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Sylvain Nofozo Yimfou · Ingénieur Statisticien Économiste</span>
+    <span>Portfolio · novembre 2026</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var chips = document.querySelectorAll(".chip");
+  var cards = document.querySelectorAll("#projects .card");
+  var count = document.getElementById("count");
+  var empty = document.getElementById("empty");
+
+  function apply(f) {
+    var n = 0;
+    cards.forEach(function (c) {
+      var show = f === "all" || (" " + c.dataset.cat + " ").indexOf(" " + f + " ") !== -1;
+      c.hidden = !show;
+      if (show) n++;
+    });
+    count.textContent = n + (n > 1 ? " projets" : " projet");
+    empty.hidden = n !== 0;
+  }
+
+  chips.forEach(function (b) {
+    b.addEventListener("click", function () {
+      chips.forEach(function (o) { o.setAttribute("aria-pressed", o === b ? "true" : "false"); });
+      apply(b.dataset.f);
+      try { localStorage.setItem("pf-filter", b.dataset.f); } catch (e) {}
+    });
+  });
+
+  try {
+    var saved = localStorage.getItem("pf-filter");
+    if (saved) {
+      var btn = document.querySelector('.chip[data-f="' + saved + '"]');
+      if (btn) btn.click();
+    }
+  } catch (e) {}
+
+  document.querySelectorAll(".copy").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var el = document.getElementById(b.dataset.target);
+      var text = el.textContent.trim();
+      function done(label) {
+        b.textContent = label;
+        setTimeout(function () { b.textContent = "Copier"; }, 1600);
+      }
+      function select() {
+        var r = document.createRange(); r.selectNodeContents(el);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        done("Sélectionné");
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { done("Copié"); }, select);
+      } else { select(); }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
